@@ -1,0 +1,1 @@
+This is the temp file storage for files that get exported from Fusion CAM
