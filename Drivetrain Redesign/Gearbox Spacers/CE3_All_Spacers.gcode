@@ -12,9 +12,9 @@
 M140 S60
 M105
 M190 S60
-M104 S200
+M104 S210
 M105
-M109 S200
+M109 S210
 M82 ;absolute extrusion mode
 M201 X500.00 Y500.00 Z100.00 E5000.00 ;Setup machine max acceleration
 M203 X500.00 Y500.00 Z10.00 E50.00 ;Setup machine max feedrate
@@ -107077,3 +107077,10 @@ M84 X Y E ;Disable all steppers but Z
 M82 ;absolute extrusion mode
 M104 S0
 ;End of Gcode
+;SETTING_3 {"global_quality": "[general]\\nversion = 4\\nname = Standard Quality
+;SETTING_3  #2\\ndefinition = creality_base\\n\\n[metadata]\\ntype = quality_cha
+;SETTING_3 nges\\nquality_type = standard\\n\\n[values]\\n\\n", "extruder_qualit
+;SETTING_3 y": ["[general]\\nversion = 4\\nname = Standard Quality #2\\ndefiniti
+;SETTING_3 on = creality_ender3\\n\\n[metadata]\\ntype = quality_changes\\nposit
+;SETTING_3 ion = 0\\nquality_type = standard\\n\\n[values]\\nmaterial_print_temp
+;SETTING_3 erature = 210\\n\\n"]}
