@@ -15,7 +15,19 @@ M8
 G0 X5. Y12.2714
 G43 Z0.6 H1
 Z0.2
+G98 G81 X5. Y12.2714 Z-0.0312 R0.2 F5.
+X6.
+X8. Y8.3661
+X7.
+X6.
+X5.
+X4.
+X3.
+G80
+Z0.6
+M5
+G0 Z.5
+G0 X0 Y0
 
 M9
 M30
-!Error: Failed to post data. See log for details.
