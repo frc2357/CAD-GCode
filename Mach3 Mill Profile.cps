@@ -10,9 +10,9 @@
   FORKID {12317DF3-FEC5-4509-B402-622F414C7B47}
 */
 
-description = "Mach3Mill";
-vendor = "Artsoft";
-vendorUrl = "http://www.machsupport.com";
+description = "OmioCNC";
+vendor = "System Meltdown";
+vendorUrl = "";
 legal = "Copyright (C) 2012-2019 by Autodesk, Inc.";
 certificationLevel = 2;
 minimumRevision = 40783;
@@ -336,6 +336,7 @@ function onOpen() {
     writeBlock(gUnitModal.format(21));
     break;
   }
+
 }
 
 function onComment(message) {
@@ -781,6 +782,7 @@ function onSection() {
   if (insertToolCall) {
     forceWorkPlane();
     
+    onRapid(0,0,getParameter('operation:clearanceHeight_value')); //Raise Z up to clearnceHeight
     onCommand(COMMAND_STOP_SPINDLE);
     setCoolant(COOLANT_OFF);
   
@@ -836,11 +838,11 @@ function onSection() {
       isFirstSection() ||
       (rpmFormat.areDifferent(spindleSpeed, sOutput.getCurrent())) ||
       (tool.clockwise != getPreviousSection().getTool().clockwise)) {
-    if (spindleSpeed < 1) {
+    if (spindleSpeed < 5000) {
       error(localize("Spindle speed out of range."));
       return;
     }
-    if (spindleSpeed > 99999) {
+    if (spindleSpeed > 250000) {
       warning(localize("Spindle speed exceeds maximum value."));
     }
     var tapping = hasParameter("operation:cycleType") &&
@@ -852,6 +854,7 @@ function onSection() {
       writeBlock(
         sOutput.format(spindleSpeed), mFormat.format(tool.clockwise ? 3 : 4)
       );
+      onDwell(5); //Dwell to a  llow Spindle to speed up
     }
   }
 
@@ -1799,6 +1802,8 @@ function onSectionEnd() {
     }
   }
   forceAny();
+  //onRapid(,,getParameter('operation:clearanceHeight_value')); //Raise Z up to clearnceHeight
+
 }
 
 /** Output block to do safe retract and/or move to home position. */

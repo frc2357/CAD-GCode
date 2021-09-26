@@ -1,0 +1,21 @@
+(120.006 OP2)
+(CENTER DRILLING)
+G90 G94 G91.1 G40 G49 G17
+G20
+G0 Z.5
+
+(DRILL1)
+G0 X0. Y0. Z0.6
+M5
+T1 M6
+S15000 M3
+G4 P5.
+G54
+M8
+G0 X5. Y12.2714
+G43 Z0.6 H1
+Z0.2
+
+M9
+M30
+!Error: Failed to post data. See log for details.
