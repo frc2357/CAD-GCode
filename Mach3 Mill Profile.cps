@@ -337,8 +337,7 @@ function onOpen() {
     break;
   }
 
-  writeBlock(gFormat.format(G0),)
-  writeRetract(Z)
+  //writeBlock(gFormat.format(G0))
 
 }
 
